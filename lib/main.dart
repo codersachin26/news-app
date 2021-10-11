@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:short_news/screens/home_screen.dart';
+import 'package:short_news/screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,45 +12,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(brightness: Brightness.dark),
+      // theme: ThemeData(brightness: Brightness.dark),
       darkTheme: ThemeData.dark(),
-      home: const HomeScreen(title: 'Short News'),
+      home: const ShortNewsApp(),
     );
   }
 }
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key, required this.title}) : super(key: key);
+class ShortNewsApp extends StatelessWidget {
+  const ShortNewsApp({Key? key}) : super(key: key);
 
-  final String title;
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '_counter',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+    if (!true)
+      return HomeScreen();
+    else
+      return LogInScreen();
   }
 }
