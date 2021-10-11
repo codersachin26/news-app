@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:short_news/models/news_app.dart';
 
 class SignInConatiner extends StatelessWidget {
   const SignInConatiner({Key? key}) : super(key: key);
@@ -28,7 +30,10 @@ class SignInConatiner extends StatelessWidget {
             ],
           ),
         ),
-        onTap: () {},
+        onTap: () {
+          final model = Provider.of<NewsApp>(context, listen: false);
+          model.googleSignIn();
+        },
       ),
     );
   }
