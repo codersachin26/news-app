@@ -35,7 +35,6 @@ class NewsContent extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(3),
             decoration: BoxDecoration(
-              color: Colors.grey,
               borderRadius: BorderRadius.circular(8),
             ),
             child: const Text(
@@ -43,12 +42,23 @@ class NewsContent extends StatelessWidget {
               style: TextStyle(fontStyle: FontStyle.italic),
             ),
           ),
-          const Text(
-            'Bug Bounty Radar The latest bug bounty programs for October 2021',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          const SizedBox(
+            height: 5,
           ),
           const Text(
-              'Apple’s bug bounty program came in for some pretty damning criticism this month, after the Washington Post interviewed two dozen security researchers about their experiences probing its applications for vulnerabilities')
+            'Bug Bounty Radar The latest bug bounty programs for October 2021',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(
+            height: 3,
+          ),
+          const Text(
+            'Apple’s bug bounty program came in for some pretty damning criticism this month, after the Washington Post interviewed two dozen security researchers about their experiences probing its applications for vulnerabilities',
+            style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.normal,
+                fontStyle: FontStyle.normal),
+          )
         ],
       ),
     );

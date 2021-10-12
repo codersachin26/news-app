@@ -20,24 +20,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => NewsApp(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        // theme: ThemeData(brightness: Brightness.dark),
-        darkTheme: ThemeData.dark(),
-        home: Consumer<NewsApp>(
-            builder: (context, model, _) => FutureBuilder(
-                future: _initialization,
-                builder: (context, snapshot) {
-                  if (snapshot.hasError) {
-                    print("error");
-                  }
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    return HomeScreen();
-                  } else {
-                    return Container();
-                  }
-                })),
-      ),
+      child: FutureBuilder(
+          future: _initialization,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              print("error");
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              return Consumer<NewsApp>(
+                  builder: (context, model, _) => HomeScreen());
+            } else {
+              return Container();
+            }
+          }),
     );
   }
 }
