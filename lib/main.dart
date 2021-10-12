@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => NewsApp(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         // theme: ThemeData(brightness: Brightness.dark),
         darkTheme: ThemeData.dark(),
         home: Consumer<NewsApp>(
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
                     print("error");
                   }
                   if (snapshot.connectionState == ConnectionState.done) {
-                    return ShortNewsApp();
+                    return HomeScreen();
                   } else {
                     return Container();
                   }
