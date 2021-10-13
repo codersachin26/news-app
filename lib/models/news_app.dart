@@ -40,6 +40,7 @@ class NewsApp extends ChangeNotifier {
     dynamic themeMode = pref.get('themeMode');
     currentTheme = themeMode == 'dark' ? Themes.darkTheme : Themes.lightTheme;
     _themeMode = themeMode == 'dark' ? ThemeMode.dark : ThemeMode.light;
+
     return currentTheme;
   }
 
@@ -48,6 +49,7 @@ class NewsApp extends ChangeNotifier {
     final pref = await SharedPreferences.getInstance();
 
     pref.setString('themeMode', myTheme);
+    _themeMode = themeMode;
 
     notifyListeners();
   }

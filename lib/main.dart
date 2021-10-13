@@ -14,26 +14,13 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => NewsApp(),
-      child: FutureBuilder(
-          future: _initialization,
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              print("error");
-            }
-            if (snapshot.connectionState == ConnectionState.done) {
-              return Consumer<NewsApp>(
-                  builder: (context, model, _) => HomeScreen());
-            } else {
-              return Container();
-            }
-          }),
-    );
+        create: (context) => NewsApp(),
+        child:
+            Consumer<NewsApp>(builder: (context, model, _) => ShortNewsApp()));
   }
 }
 
@@ -44,9 +31,9 @@ class ShortNewsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (user != null) {
-      return const HomeScreen();
+      return HomeScreen();
     } else {
-      return const LogInScreen();
+      return LogInScreen();
     }
   }
 }
