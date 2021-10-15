@@ -4,6 +4,8 @@ class Article {
   final String source;
   final String content;
   final String imgURL;
+  final String publshedAt;
 
-  Article(this.id, this.title, this.source, this.content, this.imgURL);
+  Article(this.id, this.title, this.source, this.content, this.imgURL,
+      this.publshedAt);
 }

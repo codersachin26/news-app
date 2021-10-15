@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:short_news/models/data_model.dart';
 import 'package:short_news/models/news_app.dart';
 import 'package:short_news/screens/notification_screen.dart';
 import 'package:short_news/widgets/bottom_nav_bar.dart';
@@ -18,10 +19,18 @@ class HomeScreen extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: snapshot.data,
-            home: HomeView(),
+            home: FutureBuilder(
+                future: Provider.of<NewsApp>(context, listen: false).getNews(),
+                builder: (context, AsyncSnapshot<List<Article>> snapshot) {
+                  if (snapshot.hasData) {
+                    return HomeView(articles: snapshot.data!);
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                }),
           );
         } else {
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );
@@ -29,7 +38,8 @@ class HomeScreen extends StatelessWidget {
 }
 
 class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
+  List<Article> articles = [];
+  HomeView({Key? key, required this.articles}) : super(key: key);
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -55,7 +65,8 @@ class _HomeViewState extends State<HomeView> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const NotificationScreen()));
+                        builder: (context) =>
+                            NotificationScreen(articles: widget.articles)));
               },
               icon: const Icon(
                 Icons.notifications,
@@ -67,8 +78,10 @@ class _HomeViewState extends State<HomeView> {
       ),
       body: PageView.builder(
           scrollDirection: Axis.vertical,
-          itemCount: 10,
-          itemBuilder: (context, idx) => const NewsContainer()),
+          itemCount: widget.articles.length,
+          itemBuilder: (context, index) => NewsContainer(
+                article: widget.articles[index],
+              )),
       bottomNavigationBar: BottomNavBar(
         notifyParent: notifyParent,
       ),

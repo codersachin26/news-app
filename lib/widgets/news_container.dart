@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:short_news/models/data_model.dart';
 import 'package:short_news/widgets/news_thumbnail.dart';
 
 class NewsContainer extends StatelessWidget {
-  const NewsContainer({Key? key}) : super(key: key);
+  final Article article;
+  const NewsContainer({Key? key, required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +13,11 @@ class NewsContainer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
-        children: const <Widget>[
-          NewsThumbnail(),
-          NewsContent(),
+        children: <Widget>[
+          NewsThumbnail(article: article),
+          NewsContent(
+            article: article,
+          ),
         ],
       ),
     );
@@ -21,7 +25,8 @@ class NewsContainer extends StatelessWidget {
 }
 
 class NewsContent extends StatelessWidget {
-  const NewsContent({Key? key}) : super(key: key);
+  final Article article;
+  const NewsContent({Key? key, required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,26 +40,28 @@ class NewsContent extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(3),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: const Text(
-              'Hack News',
-              style: TextStyle(fontStyle: FontStyle.italic),
+                borderRadius: BorderRadius.circular(8),
+                color: Theme.of(context).primaryColor),
+            child: Text(
+              article.source,
+              style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                  color: Theme.of(context).dividerColor),
             ),
           ),
           const SizedBox(
             height: 5,
           ),
-          const Text(
-            'Bug Bounty Radar The latest bug bounty programs for October 2021',
+          Text(
+            article.title,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
           ),
           const SizedBox(
             height: 3,
           ),
-          const Text(
-            'Apple’s bug bounty program came in for some pretty damning criticism this month, after the Washington Post interviewed two dozen security researchers about their experiences probing its applications for vulnerabilities',
-            style: TextStyle(
+          Text(
+            article.content,
+            style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.normal,
                 fontStyle: FontStyle.normal),

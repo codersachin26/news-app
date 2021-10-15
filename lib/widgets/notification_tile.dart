@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:short_news/models/data_model.dart';
 import 'package:short_news/widgets/news_container.dart';
 
 class NotificationTile extends StatelessWidget {
   final int index;
-  const NotificationTile({Key? key, required this.index}) : super(key: key);
+  final Article article;
+  const NotificationTile({Key? key, required this.index, required this.article})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +15,10 @@ class NotificationTile extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => NotificationView(index: index)));
+                builder: (context) => NotificationView(
+                      index: index,
+                      article: article,
+                    )));
       },
       child: Hero(
         tag: 'notification$index',
@@ -48,8 +54,10 @@ class NotificationTile extends StatelessWidget {
 }
 
 class NotificationView extends StatelessWidget {
+  final Article article;
   final int index;
-  const NotificationView({Key? key, required this.index}) : super(key: key);
+  const NotificationView({Key? key, required this.index, required this.article})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +68,9 @@ class NotificationView extends StatelessWidget {
         ),
         body: Hero(
           tag: 'notification$index',
-          child: NewsContainer(),
+          child: NewsContainer(
+            article: article,
+          ),
         ),
       ),
     );

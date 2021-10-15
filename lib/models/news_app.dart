@@ -5,7 +5,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:short_news/models/data_model.dart';
 import 'package:short_news/models/db.dart';
+import 'package:short_news/models/news_api.dart';
 import 'package:short_news/models/themes.dart';
+import 'package:uuid/uuid.dart';
 
 class NewsApp extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -77,9 +79,33 @@ class NewsApp extends ChangeNotifier {
           bookmarkArticle['title'],
           bookmarkArticle['source'],
           bookmarkArticle['content'],
-          bookmarkArticle['imgURL']);
+          bookmarkArticle['imgURL'],
+          bookmarkArticle['publshedAt']);
       articles.add(article);
     });
+    return articles;
+  }
+
+  // get news from NewsAPI
+  Future<List<Article>> getNews() async {
+    List<Article> articles = [];
+    final jsonData = await NewsAPI().getData();
+    if (jsonData['status'] == 'ok') {
+      jsonData["articles"].forEach((jsonarticle) {
+        if (jsonarticle['urlToImage'] != null &&
+            jsonarticle['content'] != null) {
+          Article article = Article(
+              const Uuid().v1(),
+              jsonarticle['title'],
+              jsonarticle['source']['name'],
+              jsonarticle["description"],
+              jsonarticle['urlToImage'],
+              jsonarticle['publishedAt']);
+          ;
+          articles.add(article);
+        }
+      });
+    }
     return articles;
   }
 }
