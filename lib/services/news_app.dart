@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:short_news/models/data_model.dart';
-import 'package:short_news/models/db.dart';
-import 'package:short_news/models/news_api.dart';
+import 'package:short_news/services/db.dart';
+import 'package:short_news/services/news_api.dart';
 import 'package:short_news/models/themes.dart';
 import 'package:uuid/uuid.dart';
 

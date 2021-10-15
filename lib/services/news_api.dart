@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'api_key.dart';
+import '../models/api_key.dart';
 
 class NewsAPI {
   Future<dynamic> getData() async {

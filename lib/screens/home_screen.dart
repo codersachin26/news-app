@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:short_news/models/data_model.dart';
-import 'package:short_news/models/news_app.dart';
+import 'package:short_news/services/news_app.dart';
 import 'package:short_news/screens/notification_screen.dart';
 import 'package:short_news/widgets/bottom_nav_bar.dart';
 import 'package:short_news/widgets/news_container.dart';

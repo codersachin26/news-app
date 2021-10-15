@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:short_news/models/news_app.dart';
+import 'package:short_news/services/news_app.dart';
 
 class ThemeIcon extends StatelessWidget {
   ThemeIcon({Key? key}) : super(key: key);

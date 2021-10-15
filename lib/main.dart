@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:short_news/models/news_app.dart';
+import 'package:short_news/services/news_app.dart';
 import 'package:short_news/screens/home_screen.dart';
 import 'package:short_news/screens/login_screen.dart';
 
