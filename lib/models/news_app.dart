@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:short_news/models/data_model.dart';
+import 'package:short_news/models/db.dart';
 import 'package:short_news/models/themes.dart';
 
 class NewsApp extends ChangeNotifier {
@@ -34,6 +36,7 @@ class NewsApp extends ChangeNotifier {
     notifyListeners();
   }
 
+// return current theme
   Future<ThemeData> getTheme() async {
     ThemeData currentTheme;
     final pref = await SharedPreferences.getInstance();
@@ -44,6 +47,7 @@ class NewsApp extends ChangeNotifier {
     return currentTheme;
   }
 
+// set theme
   Future<void> setTheme(ThemeMode themeMode) async {
     final myTheme = ThemeMode.dark == themeMode ? 'dark' : 'light';
     final pref = await SharedPreferences.getInstance();
@@ -52,5 +56,30 @@ class NewsApp extends ChangeNotifier {
     _themeMode = themeMode;
 
     notifyListeners();
+  }
+
+  // bookmark article
+  void bookmarkArticle(Article article, bool isbookmark) async {
+    if (isbookmark) {
+      await DB.removeArticle(article.id);
+    } else {
+      await DB.addArticle(article);
+    }
+  }
+
+// fetch bookmark articles from db
+  Future<List<Article>> getBookmarkArticle() async {
+    final List<Article> articles = [];
+    final result = await DB.getBookmarks();
+    result.forEach((bookmarkArticle) {
+      final article = Article(
+          bookmarkArticle['id'],
+          bookmarkArticle['title'],
+          bookmarkArticle['source'],
+          bookmarkArticle['content'],
+          bookmarkArticle['imgURL']);
+      articles.add(article);
+    });
+    return articles;
   }
 }
