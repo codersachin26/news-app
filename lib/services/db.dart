@@ -14,7 +14,7 @@ class DB {
     final String dbpath = join(await getDatabasesPath() + "bookmark.db");
     final dbCon = await openDatabase(dbpath, onCreate: (db, virsion) {
       db.execute(
-        'CREATE TABLE $tableName(id TEXT,title TEXT,source TEXT,content TEXT,imgURL TEXT)',
+        'CREATE TABLE $tableName(id TEXT,title TEXT,source TEXT,content TEXT,imgURL TEXT, publshedAt TEXT)',
       );
     }, version: 1);
 
@@ -38,7 +38,8 @@ class DB {
       'title': article.title,
       'source': article.source,
       'content': article.content,
-      'imgURL': article.imgURL
+      'imgURL': article.imgURL,
+      'publshedAt': article.publshedAt
     };
     if (DB._dbConnection != null) {
       await DB._dbConnection?.insert(tableName, values);

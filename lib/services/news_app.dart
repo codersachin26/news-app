@@ -75,12 +75,14 @@ class NewsApp extends ChangeNotifier {
     final result = await DB.getBookmarks();
     result.forEach((bookmarkArticle) {
       final article = Article(
-          bookmarkArticle['id'],
-          bookmarkArticle['title'],
-          bookmarkArticle['source'],
-          bookmarkArticle['content'],
-          bookmarkArticle['imgURL'],
-          bookmarkArticle['publshedAt']);
+        bookmarkArticle['id'],
+        bookmarkArticle['title'],
+        bookmarkArticle['source'],
+        bookmarkArticle['content'],
+        bookmarkArticle['imgURL'],
+        bookmarkArticle['publshedAt'],
+        true,
+      );
       articles.add(article);
     });
     return articles;
@@ -106,6 +108,11 @@ class NewsApp extends ChangeNotifier {
         }
       });
     }
+    return articles;
+  }
+
+  Future<List<Article>> getNotification() async {
+    List<Article> articles = [];
     return articles;
   }
 }

@@ -19,15 +19,7 @@ class HomeScreen extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: snapshot.data,
-            home: FutureBuilder(
-                future: Provider.of<NewsApp>(context, listen: false).getNews(),
-                builder: (context, AsyncSnapshot<List<Article>> snapshot) {
-                  if (snapshot.hasData) {
-                    return HomeView(articles: snapshot.data!);
-                  } else {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                }),
+            home: HomeView(),
           );
         } else {
           return const Center(child: CircularProgressIndicator());
@@ -38,16 +30,24 @@ class HomeScreen extends StatelessWidget {
 }
 
 class HomeView extends StatefulWidget {
-  List<Article> articles = [];
-  HomeView({Key? key, required this.articles}) : super(key: key);
+  const HomeView({Key? key}) : super(key: key);
 
   @override
   State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-  void notifyParent() {
-    setState(() {});
+  bool isBookmarkPage = false;
+  void notifyParent(int index) {
+    if (index == 0) {
+      setState(() {
+        isBookmarkPage = false;
+      });
+    } else if (index == 1) {
+      setState(() {
+        isBookmarkPage = true;
+      });
+    }
   }
 
   @override
@@ -65,8 +65,7 @@ class _HomeViewState extends State<HomeView> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            NotificationScreen(articles: widget.articles)));
+                        builder: (context) => const NotificationScreen()));
               },
               icon: const Icon(
                 Icons.notifications,
@@ -76,15 +75,62 @@ class _HomeViewState extends State<HomeView> {
           }),
         ],
       ),
-      body: PageView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: widget.articles.length,
-          itemBuilder: (context, index) => NewsContainer(
-                article: widget.articles[index],
-              )),
+      body: isBookmarkPage ? const BookmarkNewsView() : const NewsView(),
       bottomNavigationBar: BottomNavBar(
         notifyParent: notifyParent,
       ),
     ));
+  }
+}
+
+// bookmark news container widget
+class BookmarkNewsView extends StatelessWidget {
+  const BookmarkNewsView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: Provider.of<NewsApp>(context, listen: false).getBookmarkArticle(),
+      builder: (context, AsyncSnapshot<List<Article>> snapshot) {
+        if (snapshot.hasError) {
+          return Center(child: Text(snapshot.error.toString()));
+        }
+        if (snapshot.hasData) {
+          return PageView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: snapshot.data?.length,
+              itemBuilder: (context, index) => NewsContainer(
+                    article: snapshot.data![index],
+                  ));
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
+    );
+  }
+}
+
+// newsAPI news container widget
+class NewsView extends StatelessWidget {
+  const NewsView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: Provider.of<NewsApp>(context, listen: false).getNews(),
+        builder: (context, AsyncSnapshot<List<Article>> snapshot) {
+          if (snapshot.hasData) {
+            return PageView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: snapshot.data?.length,
+                itemBuilder: (context, index) => NewsContainer(
+                      article: snapshot.data![index],
+                    ));
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
+        });
   }
 }

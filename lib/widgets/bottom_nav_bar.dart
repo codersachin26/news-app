@@ -2,19 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:short_news/services/news_app.dart';
 
-class BottomNavBar extends StatelessWidget {
-  VoidCallback notifyParent;
+class BottomNavBar extends StatefulWidget {
+  final Function(int) notifyParent;
+
   BottomNavBar({Key? key, required this.notifyParent}) : super(key: key);
+
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-        currentIndex: 0,
+        currentIndex: currentIndex,
         onTap: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+
           if (index == 0) {
-            notifyParent();
+            widget.notifyParent(index);
           } else if (index == 1) {
-            notifyParent();
+            widget.notifyParent(index);
           } else if (index == 2) {
             final model = Provider.of<NewsApp>(context, listen: false);
             model.signOut();
