@@ -8,6 +8,7 @@ import 'package:short_news/services/db.dart';
 import 'package:short_news/services/news_api.dart';
 import 'package:short_news/models/themes.dart';
 import 'package:uuid/uuid.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class NewsApp extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -111,8 +112,24 @@ class NewsApp extends ChangeNotifier {
     return articles;
   }
 
+// fetch notifications from firebase firestore
   Future<List<Article>> getNotification() async {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
     List<Article> articles = [];
+    final result = await firestore.collection('notifications').get();
+    final docs = result.docs;
+    docs.forEach((doc) {
+      print(doc);
+      final article = Article(
+        const Uuid().v1(),
+        doc['title'],
+        doc['source'],
+        doc["content"],
+        doc['imgURL'],
+        '',
+      );
+      articles.add(article);
+    });
     return articles;
   }
 }

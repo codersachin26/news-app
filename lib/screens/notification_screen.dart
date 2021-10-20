@@ -27,7 +27,7 @@ class NotificationScreen extends StatelessWidget {
               return Container(
                   padding: const EdgeInsets.only(top: 5),
                   child: ListView.builder(
-                      itemCount: 5,
+                      itemCount: snapshot.data!.length,
                       itemBuilder: (context, index) => NotificationTile(
                             index: snapshot.data!.length,
                             article: snapshot.data![index],

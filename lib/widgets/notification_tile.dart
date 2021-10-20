@@ -33,16 +33,15 @@ class NotificationTile extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: Container(
-                    child: Image.asset('news_img.jpg'),
+                    child: Image.network(article.imgURL),
                   ),
                 ),
                 const SizedBox(
                   width: 2,
                 ),
-                const Expanded(
+                Expanded(
                   flex: 2,
-                  child: Text(
-                      'Bug Bounty Radar The latest bug bounty programs for October 2021'),
+                  child: Text(article.title),
                 )
               ],
             ),
@@ -68,8 +67,10 @@ class NotificationView extends StatelessWidget {
         ),
         body: Hero(
           tag: 'notification$index',
-          child: NewsContainer(
-            article: article,
+          child: Material(
+            child: NewsContainer(
+              article: article,
+            ),
           ),
         ),
       ),
