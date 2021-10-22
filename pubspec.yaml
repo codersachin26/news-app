@@ -29,6 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  flutter_launcher_icons: "^0.9.2"
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -44,6 +46,7 @@ dependencies:
   uuid: ^3.0.5
   cloud_firestore: ^2.5.3
   firebase_crashlytics: ^2.2.3
+  flutter_native_splash: ^1.2.4
 
 dev_dependencies:
   flutter_test:
@@ -71,7 +74,7 @@ flutter:
   assets:
     - background-img.jpg
     - google-icon.png
-    - news_img.jpg
+    - app_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -98,3 +101,12 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_native_splash:
+  image: assets/app_icon.png
+  color: "#f7f7f7"
+  ios: false
+
+flutter_icons:
+  android: true
+  image_path: "assets/app_icon.png"
