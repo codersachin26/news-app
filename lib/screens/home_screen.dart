@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:short_news/models/data_model.dart';
@@ -37,6 +38,27 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  void _handleMessage(RemoteMessage message) {
+    if (message.data['type'] == 'chat') {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const NotificationScreen()));
+    }
+  }
+
+  Future<void> setupInteractedMessage() async {
+  
+    RemoteMessage? initialMessage =
+        await FirebaseMessaging.instance.getInitialMessage();
+
+    
+    if (initialMessage != null) {
+      _handleMessage(initialMessage);
+    }
+
+   
+    FirebaseMessaging.onMessageOpenedApp.listen(_handleMessage);
+  }
+
   bool isBookmarkPage = false;
   void notifyParent(int index) {
     if (index == 0) {
@@ -48,6 +70,12 @@ class _HomeViewState extends State<HomeView> {
         isBookmarkPage = true;
       });
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    setupInteractedMessage();
   }
 
   @override

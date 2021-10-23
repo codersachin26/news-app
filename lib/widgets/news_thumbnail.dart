@@ -45,10 +45,10 @@ class _BookMarkBtnState extends State<BookMarkBtn> {
         margin: const EdgeInsets.only(top: 8),
         color: Colors.grey.withOpacity(0.3),
         child: widget.article.isBookmark
-            ? const Icon(
+            ? Icon(
                 Icons.bookmark,
                 size: 32,
-                color: Colors.deepPurple,
+                color: Colors.grey.withOpacity(0.5),
               )
             : const Icon(
                 Icons.bookmark_border_rounded,
@@ -56,7 +56,6 @@ class _BookMarkBtnState extends State<BookMarkBtn> {
               ),
       ),
       onTap: () {
-        print('clicked');
         final model = Provider.of<NewsApp>(context, listen: false);
         model.bookmarkArticle(widget.article, widget.article.isBookmark);
         widget.article.isBookmark = !widget.article.isBookmark;

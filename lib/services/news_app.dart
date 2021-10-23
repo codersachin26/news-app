@@ -92,7 +92,7 @@ class NewsApp extends ChangeNotifier {
   // get news from NewsAPI
   Future<List<Article>> getNews() async {
     List<Article> articles = [];
-    final jsonData = await NewsAPI().getData();
+    final jsonData = await NewsAPI.getData();
     if (jsonData['status'] == 'ok') {
       jsonData["articles"].forEach((jsonarticle) {
         if (jsonarticle['urlToImage'] != null &&
