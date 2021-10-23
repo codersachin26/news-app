@@ -45,10 +45,10 @@ class _BookMarkBtnState extends State<BookMarkBtn> {
         margin: const EdgeInsets.only(top: 8),
         color: Colors.grey.withOpacity(0.3),
         child: widget.article.isBookmark
-            ? Icon(
+            ? const Icon(
                 Icons.bookmark,
                 size: 32,
-                color: Colors.grey.withOpacity(0.5),
+                color: Colors.deepPurple,
               )
             : const Icon(
                 Icons.bookmark_border_rounded,

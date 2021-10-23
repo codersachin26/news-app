@@ -3,9 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:short_news/services/news_app.dart';
 
 class BottomNavBar extends StatefulWidget {
-  final Function(int) notifyParent;
+  final PageController pageController;
 
-  BottomNavBar({Key? key, required this.notifyParent}) : super(key: key);
+  const BottomNavBar({Key? key, required this.pageController})
+      : super(key: key);
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -24,9 +25,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
           });
 
           if (index == 0) {
-            widget.notifyParent(index);
+            widget.pageController.jumpToPage(0);
           } else if (index == 1) {
-            widget.notifyParent(index);
+            widget.pageController.jumpToPage(1);
           } else if (index == 2) {
             final model = Provider.of<NewsApp>(context, listen: false);
             model.signOut();

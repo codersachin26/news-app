@@ -46,31 +46,22 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Future<void> setupInteractedMessage() async {
-  
     RemoteMessage? initialMessage =
         await FirebaseMessaging.instance.getInitialMessage();
 
-    
     if (initialMessage != null) {
       _handleMessage(initialMessage);
     }
 
-   
     FirebaseMessaging.onMessageOpenedApp.listen(_handleMessage);
   }
 
-  bool isBookmarkPage = false;
-  void notifyParent(int index) {
-    if (index == 0) {
-      setState(() {
-        isBookmarkPage = false;
-      });
-    } else if (index == 1) {
-      setState(() {
-        isBookmarkPage = true;
-      });
-    }
-  }
+  PageController pageController =
+      PageController(initialPage: 0, keepPage: true);
+  List<Widget> screens = const <Widget>[
+    NewsView(),
+    BookmarkNewsView(),
+  ];
 
   @override
   void initState() {
@@ -103,18 +94,29 @@ class _HomeViewState extends State<HomeView> {
           }),
         ],
       ),
-      body: isBookmarkPage ? const BookmarkNewsView() : const NewsView(),
+      body: PageView.builder(
+        physics: const NeverScrollableScrollPhysics(),
+        controller: pageController,
+        itemCount: screens.length,
+        itemBuilder: (context, index) => screens[index],
+      ),
       bottomNavigationBar: BottomNavBar(
-        notifyParent: notifyParent,
+        pageController: pageController,
       ),
     ));
   }
 }
 
 // bookmark news container widget
-class BookmarkNewsView extends StatelessWidget {
+class BookmarkNewsView extends StatefulWidget {
   const BookmarkNewsView({Key? key}) : super(key: key);
 
+  @override
+  State<BookmarkNewsView> createState() => _BookmarkNewsViewState();
+}
+
+class _BookmarkNewsViewState extends State<BookmarkNewsView>
+    with AutomaticKeepAliveClientMixin<BookmarkNewsView> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -138,12 +140,21 @@ class BookmarkNewsView extends StatelessWidget {
       },
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 // newsAPI news container widget
-class NewsView extends StatelessWidget {
+class NewsView extends StatefulWidget {
   const NewsView({Key? key}) : super(key: key);
 
+  @override
+  State<NewsView> createState() => _NewsViewState();
+}
+
+class _NewsViewState extends State<NewsView>
+    with AutomaticKeepAliveClientMixin<NewsView> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -161,4 +172,7 @@ class NewsView extends StatelessWidget {
           }
         });
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
