@@ -54,7 +54,7 @@ class NewsContent extends StatelessWidget {
           ),
           Text(
             article.title,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
           ),
           const SizedBox(
             height: 3,
@@ -65,6 +65,7 @@ class NewsContent extends StatelessWidget {
                 fontSize: 15,
                 fontWeight: FontWeight.normal,
                 fontStyle: FontStyle.normal),
+            overflow: TextOverflow.clip,
           )
         ],
       ),

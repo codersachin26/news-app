@@ -8,7 +8,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
-import 'package:short_news/services/news_api.dart';
+import 'package:short_news/services/internet_connectivity.dart';
 import 'package:short_news/services/news_app.dart';
 import 'package:short_news/screens/home_screen.dart';
 import 'package:short_news/screens/login_screen.dart';

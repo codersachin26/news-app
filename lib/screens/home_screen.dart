@@ -1,12 +1,18 @@
+import 'dart:async';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:short_news/models/data_model.dart';
+import 'package:short_news/services/internet_connectivity.dart';
 import 'package:short_news/services/news_app.dart';
 import 'package:short_news/screens/notification_screen.dart';
+import 'package:short_news/widgets/app_logo.dart';
 import 'package:short_news/widgets/bottom_nav_bar.dart';
+import 'package:short_news/widgets/error_widget.dart';
 import 'package:short_news/widgets/news_container.dart';
 import 'package:short_news/widgets/theme_icon.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -62,11 +68,32 @@ class _HomeViewState extends State<HomeView> {
     NewsView(),
     BookmarkNewsView(),
   ];
+  StreamSubscription? subscription;
+  bool hasConnection = false;
 
   @override
   void initState() {
     super.initState();
     setupInteractedMessage();
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) {
+      if (result != ConnectivityResult.none) {
+        if (hasConnection == false) {
+          setState(() {});
+        }
+        hasConnection = true;
+      } else {
+        hasConnection = false;
+      }
+    });
+  }
+
+  @override
+  dispose() {
+    super.dispose();
+    pageController.dispose();
+    subscription?.cancel();
   }
 
   @override
@@ -74,7 +101,7 @@ class _HomeViewState extends State<HomeView> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: const Text("Short News"),
+        title: const AppLogo(),
         actions: <Widget>[
           const SizedBox(width: 10),
           ThemeIcon(),
@@ -94,11 +121,29 @@ class _HomeViewState extends State<HomeView> {
           }),
         ],
       ),
-      body: PageView.builder(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: pageController,
-        itemCount: screens.length,
-        itemBuilder: (context, index) => screens[index],
+      body: FutureBuilder<bool>(
+        future: hasInternetConnection(),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Center(
+              child: Text(snapshot.error.toString()),
+            );
+          }
+          if (snapshot.hasData) {
+            if (snapshot.data!) {
+              return PageView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: pageController,
+                itemCount: screens.length,
+                itemBuilder: (context, index) => screens[index],
+              );
+            } else {
+              return const NoInternetConnectionError();
+            }
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
+        },
       ),
       bottomNavigationBar: BottomNavBar(
         pageController: pageController,
