@@ -31,7 +31,7 @@ void onMessageForegroundHandler(RemoteMessage message) {
 }
 
 Future<void> onMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
 
   RemoteNotification? notification = message.notification;
   AndroidNotification? android = message.notification!.android;

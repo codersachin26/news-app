@@ -9,13 +9,14 @@ class MyHttpoverrides extends HttpOverrides {
   }
 }
 
-Future<bool> hasInternetConnection() async {
-  bool hasConnection = false;
-  try {
-    final result = await InternetAddress.lookup('example.com');
-    hasConnection = result.isNotEmpty && result[0].rawAddress.isNotEmpty;
-  } on SocketException catch (_) {
-    hasConnection = false;
-  }
-  return hasConnection;
-}
+// check internet connection 
+// Future<bool> hasInternetConnection() async {
+//   bool hasConnection = false;
+//   try {
+//     final result = await InternetAddress.lookup('example.com');
+//     hasConnection = result.isNotEmpty && result[0].rawAddress.isNotEmpty;
+//   } on SocketException catch (_) {
+//     hasConnection = false;
+//   }
+//   return hasConnection;
+// }

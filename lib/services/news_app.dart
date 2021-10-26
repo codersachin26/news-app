@@ -92,6 +92,7 @@ class NewsApp extends ChangeNotifier {
   // get news from NewsAPI
   Future<List<Article>> getNews() async {
     List<Article> articles = [];
+
     final jsonData = await NewsAPI.getData();
     if (jsonData['status'] == 'ok') {
       jsonData["articles"].forEach((jsonarticle) {
@@ -104,11 +105,12 @@ class NewsApp extends ChangeNotifier {
               jsonarticle["description"],
               jsonarticle['urlToImage'],
               jsonarticle['publishedAt']);
-          ;
+
           articles.add(article);
         }
       });
     }
+
     return articles;
   }
 
@@ -119,14 +121,13 @@ class NewsApp extends ChangeNotifier {
     final result = await firestore.collection('notifications').get();
     final docs = result.docs;
     docs.forEach((doc) {
-      print(doc);
       final article = Article(
         const Uuid().v1(),
         doc['title'],
         doc['source'],
         doc["content"],
         doc['imgURL'],
-        '',
+        doc['publshedAt'],
       );
       articles.add(article);
     });

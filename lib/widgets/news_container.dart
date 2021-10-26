@@ -50,11 +50,19 @@ class NewsContent extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 5,
+            height: 4,
+          ),
+          Text(
+            article.publshedAt.split('T')[0],
+            style: const TextStyle(
+                fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),
+          ),
+          const SizedBox(
+            height: 3,
           ),
           Text(
             article.title,
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
           ),
           const SizedBox(
             height: 3,
@@ -65,7 +73,7 @@ class NewsContent extends StatelessWidget {
                 fontSize: 15,
                 fontWeight: FontWeight.normal,
                 fontStyle: FontStyle.normal),
-            overflow: TextOverflow.clip,
+            overflow: TextOverflow.fade,
           )
         ],
       ),

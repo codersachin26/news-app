@@ -25,10 +25,9 @@ void main() async {
         .resolvePlatformSpecificImplementation<
             AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(channel);
-
-    runApp(MyApp());
     FirebaseMessaging.onBackgroundMessage(onMessagingBackgroundHandler);
     FirebaseMessaging.onMessage.listen(onMessageForegroundHandler);
+    runApp(MyApp());
   }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack));
 }
 
