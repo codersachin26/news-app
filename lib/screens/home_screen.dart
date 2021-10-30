@@ -1,16 +1,15 @@
-import 'dart:async';
-
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
 import 'package:short_news/services/news_app.dart';
 import 'package:short_news/screens/notification_screen.dart';
+import 'package:short_news/services/notification_handler.dart';
 import 'package:short_news/widgets/app_logo.dart';
 import 'package:short_news/widgets/bookmark_pageview.dart';
 import 'package:short_news/widgets/bottom_nav_bar.dart';
 import 'package:short_news/widgets/news_pageview.dart';
 import 'package:short_news/widgets/theme_icon.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -42,11 +41,23 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  void onSelectNotification(String? data) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const NotificationScreen()));
+  }
+
+  void initializeNotification() async {
+    var androidSettings =
+        const AndroidInitializationSettings('@mipmap/ic_launcher');
+
+    var initSetttings = InitializationSettings(android: androidSettings);
+    await flutterLocalNotificationsPlugin.initialize(initSetttings,
+        onSelectNotification: onSelectNotification);
+  }
+
   void _handleMessage(RemoteMessage message) {
-    if (message.data['type'] == 'chat') {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const NotificationScreen()));
-    }
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const NotificationScreen()));
   }
 
   Future<void> setupInteractedMessage() async {
@@ -70,7 +81,9 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
+
     setupInteractedMessage();
+    initializeNotification();
   }
 
   @override
@@ -86,7 +99,7 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(
         title: const AppLogo(),
         actions: <Widget>[
-          const SizedBox(width: 10),
+          const SizedBox(width: 8),
           ThemeIcon(),
           Builder(builder: (context) {
             return IconButton(

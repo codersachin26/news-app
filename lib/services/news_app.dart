@@ -13,6 +13,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class NewsApp extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   late ThemeMode _themeMode;
+  final List<Article> _notifications = [];
 
   ThemeMode get currentThemeMode => _themeMode;
 
@@ -95,16 +96,16 @@ class NewsApp extends ChangeNotifier {
 
     final jsonData = await NewsAPI.getData();
     if (jsonData['status'] == 'ok') {
-      jsonData["articles"].forEach((jsonarticle) {
-        if (jsonarticle['urlToImage'] != null &&
-            jsonarticle['content'] != null) {
+      jsonData["articles"].forEach((jsonArticle) {
+        if (jsonArticle['urlToImage'] != null &&
+            jsonArticle['content'] != null) {
           Article article = Article(
               const Uuid().v1(),
-              jsonarticle['title'],
-              jsonarticle['source']['name'],
-              jsonarticle["description"],
-              jsonarticle['urlToImage'],
-              jsonarticle['publishedAt']);
+              jsonArticle['title'],
+              jsonArticle['source']['name'],
+              jsonArticle["description"],
+              jsonArticle['urlToImage'],
+              jsonArticle['publishedAt']);
 
           articles.add(article);
         }
@@ -116,21 +117,25 @@ class NewsApp extends ChangeNotifier {
 
 // fetch notifications from firebase firestore
   Future<List<Article>> getNotification() async {
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-    List<Article> articles = [];
-    final result = await firestore.collection('notifications').get();
-    final docs = result.docs;
-    docs.forEach((doc) {
-      final article = Article(
-        const Uuid().v1(),
-        doc['title'],
-        doc['source'],
-        doc["content"],
-        doc['imgURL'],
-        doc['publshedAt'],
-      );
-      articles.add(article);
-    });
-    return articles;
+    if (_notifications.isNotEmpty) {
+      return _notifications;
+    } else {
+      FirebaseFirestore firestore = FirebaseFirestore.instance;
+      final result = await firestore.collection('notifications').get();
+      final notifications = result.docs;
+
+      notifications.forEach((notification) {
+        final article = Article(
+          notification.id,
+          notification['title'],
+          notification['source'],
+          notification["content"],
+          notification['imgURL'],
+          notification['publshedAt'],
+        );
+        _notifications.add(article);
+      });
+      return _notifications;
+    }
   }
 }
