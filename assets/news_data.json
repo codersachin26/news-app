@@ -1,0 +1,266 @@
+{
+    "status": "ok",
+    "totalResults": 2466,
+    "articles" : [
+    {
+    "source": {
+    "id": "wired",
+    "name": "Wired"
+    },
+    "author": "Jonathan Cohn",
+    "title": "An Ethics Bounty System Could Help Clean Up the Web",
+    "description": "Tech companies just need to adapt the bug bounty system they already use to detect vulnerabilities in code.",
+    "url": "https://www.wired.com/story/big-tech-ethics-bug-bounty/",
+    "urlToImage": "https://media.wired.com/photos/6181c6376323e922448010f3/191:100/w_1280,c_limit/An-Ethics-Bounty-System-Could-Help-Clean-Up-the-Web.jpg",
+    "publishedAt": "2021-11-03T13:00:00Z",
+    "content": "In May 2021, Twitter user @capohai shared a screenshot of a Google search for what do terrorists wear on their head, which returned, as the first result, the Palestinian keffiyeh scarf. At the same t… [+3872 chars]"
+    },
+    {
+    "source": {
+    "id": "the-verge",
+    "name": "The Verge"
+    },
+    "author": "Chaim Gartenberg",
+    "title": "‘Sideloading is a cyber criminal’s best friend,’ according to Apple’s software chief",
+    "description": "Apple SVP of software Craig Federighi protested possible legislation that would require the company to allow sideloading on iOS, arguing that it would undermine security for the iPhone.",
+    "url": "https://www.theverge.com/2021/11/3/22761724/apple-craig-federighi-ios-sideloading-web-summit-2021-european-commission-digital-markets-act",
+    "urlToImage": "https://cdn.vox-cdn.com/thumbor/rWci7vGrWNrE8IP1_VOyousxeC4=/0x13:770x416/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22983232/Screen_Shot_2021_11_03_at_9.59.39_AM.png",
+    "publishedAt": "2021-11-03T19:42:00Z",
+    "content": "Craig Federighi says that the floodgates are open for malware if Apple allows sideloading on iOS\r\nSideloading is a cyber criminals best friend and requiring that on iPhone would be a gold rush for th… [+3403 chars]"
+    },
+    {
+    "source": {
+    "id": "cnn",
+    "name": "CNN"
+    },
+    "author": "Clare Duffy, CNN Business",
+    "title": "Former Apple employee who claims she was fired for #AppleToo organizing files NLRB complaint",
+    "description": "A former Apple employee who helped form the #AppleToo movement against alleged harassment and discrimination inside the company told the National Labor Relations Board in a complaint on Tuesday that she believes she was fired in retaliation for her organizing…",
+    "url": "https://www.cnn.com/2021/11/03/tech/apple-appletoo-janneke-parrish-nlrb-complaint/index.html",
+    "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/211015161240-restricted-apple-file-super-tease.jpg",
+    "publishedAt": "2021-11-03T16:55:08Z",
+    "content": "New York (CNN Business)A former Apple employeewho helped form the #AppleToo movement against alleged harassment and discrimination inside the company told the National Labor Relations Board in a comp… [+3940 chars]"
+    },
+    {
+    "source": {
+    "id": "reuters",
+    "name": "Reuters"
+    },
+    "author": null,
+    "title": "Apple's software boss warns against draft EU policy on App Store - Reuters",
+    "description": "Apple <a href=\"https://www.reuters.com/companies/AAPL.O\" target=\"_blank\">(AAPL.O)</a> software boss Craig Federighi took the stage at the Web Summit in Lisbon to voice the iPhone maker's objections to EU draft guidelines that could allow customers to install …",
+    "url": "https://www.reuters.com/technology/apples-software-boss-warns-against-draft-eu-policy-app-store-2021-11-03/",
+    "urlToImage": "https://www.reuters.com/resizer/a0kg2jBdv9bLolsMlAToGufG-DQ=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/OBW67CIHSBMCXISBDMDYV4V4WU.jpg",
+    "publishedAt": "2021-11-03T20:08:00Z",
+    "content": "LISBON, Nov 3 (Reuters) - Apple (AAPL.O) software boss Craig Federighi took the stage at the Web Summit in Lisbon to voice the iPhone maker's objections to EU draft guidelines that could allow custom… [+2361 chars]"
+    },
+    {
+    "source": {
+    "id": "reuters",
+    "name": "Reuters"
+    },
+    "author": null,
+    "title": "Qualcomm forecast beats estimates as diversification efforts pay off - Reuters",
+    "description": "Qualcomm Inc <a href=\"https://www.reuters.com/companies/QCOM.O\" target=\"_blank\">(QCOM.O)</a> on Wednesday forecast better-than-expected profits and revenue for its current quarter on soaring demand for chips used in phones, cars and other internet-connected d…",
+    "url": "https://www.reuters.com/technology/qualcomm-forecast-beats-estimates-diversification-efforts-pay-off-2021-11-03/",
+    "urlToImage": "https://www.reuters.com/resizer/q6wim-gDz0rKvKo0jMNKfJnyDyw=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/F3ZFPS3UW5KORHMJRG7WQX5BLE.jpg",
+    "publishedAt": "2021-11-03T20:14:00Z",
+    "content": "Qualcomm logo is during Munich Auto Show, IAA Mobility 2021 in Munich, Germany, September 8, 2021. REUTERS/Wolfgang RattayNov 3 (Reuters) - Qualcomm Inc (QCOM.O) on Wednesday forecast better-than-exp… [+2734 chars]"
+    },
+    {
+    "source": {
+    "id": "reuters",
+    "name": "Reuters"
+    },
+    "author": null,
+    "title": "Penguin's big book deal gets a regulatory ice bath - Reuters",
+    "description": "Consumers usually serve as the main characters in antitrust dramas; U.S. watchdogs in particular worry mergers will saddle Americans with higher prices. But the Department of Justice, in <a href=\"https://www.justice.gov/opa/press-release/file/1445916/download…",
+    "url": "https://www.reuters.com/business/cop/penguins-big-book-deal-gets-regulatory-ice-bath-2021-11-02/",
+    "urlToImage": "https://www.reuters.com/pf/resources/images/reuters/reuters-default.png?d=55",
+    "publishedAt": "2021-11-03T00:40:00Z",
+    "content": "NEW YORK, Nov 3 (Reuters Breakingviews) - Consumers usually serve as the main characters in antitrust dramas; U.S. watchdogs in particular worry mergers will saddle Americans with higher prices. But … [+2838 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "Android Central"
+    },
+    "author": "Derrek Lee",
+    "title": "Amazon to bring Matter over Thread support to Echo, Eero devices",
+    "description": "Support for More Echo devices will come soon.\n\nWhat you need to know\n\n\nAmazon commits to supporting Matter over Thread in its products.\nThe standard will be supported on Eero devices and the fourth-gen Echo next year.\nAdditional Echo devices will gain support…",
+    "url": "https://www.androidcentral.com/amazon-matter-over-thread-support",
+    "urlToImage": "https://www.androidcentral.com/sites/androidcentral.com/files/styles/large/public/article_images/2020/09/amazon-echo-4th-gen-lifestyle-1.jpg",
+    "publishedAt": "2021-11-03T19:09:33Z",
+    "content": "Amazon is one of the companies involved in the Matter initiative, so it comes as no surprise when the company announced on Wednesday that it's committing to support Matter over Thread in its products… [+1833 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "The Guardian"
+    },
+    "author": "Presented by Max Rushden, with Barry Glendenning, Nicky Bandini and Jonathan Liew. Produced by Silas Gray",
+    "title": "Ronaldo papers over United’s cracks and Conte arrives at Spurs – Football Weekly",
+    "description": "Max Rushden, Barry Glendenning, Nicky Bandini and Jonathan Liew discuss the Champions League and Antonio Conte taking over at SpursRate, review, share on Apple Podcasts, Soundcloud, Audioboom, Mixcloud, Acast and Stitcher, and join the conversation on Faceboo…",
+    "url": "https://www.theguardian.com/football/audio/2021/nov/03/football-weekly-podcast-cristiano-ronaldo-manchester-united-champions-league-tottenham-antonio-conte",
+    "urlToImage": "https://i.guim.co.uk/img/media/a59b6d29226a60f2be8f91e82dfcf045d3f39bc8/0_331_5000_3002/master/5000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=9029064b7b58d9244959bbae08933425",
+    "publishedAt": "2021-11-03T14:03:09Z",
+    "content": "Rate, review, share on Apple Podcasts, Soundcloud, Audioboom, Mixcloud, Acast and Stitcher, and join the conversation on Facebook, Twitter and email.\r\nThe panel discuss Tuesday nights European games,… [+546 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "The Guardian"
+    },
+    "author": "Peter-Astrid Kane",
+    "title": "What are the elements in your iPhone, Starbucks cup and bike? Visualized",
+    "description": "The Dutch duo Studio Drift’s multipart show at the Shed in New York, Fragile Future, deconstructs the materials of daily lifeWhat happens if you reverse engineer the raw materials of everyday objects such as an iPhone, a Starbucks cup or a bicycle? Lonneke Go…",
+    "url": "https://amp.theguardian.com/artanddesign/2021/nov/03/art-shed-materialism-fragile-future-technology",
+    "urlToImage": "https://i.guim.co.uk/img/media/81460eb2c78f074ec020ae5dc73cc45241273d6a/605_544_1172_703/master/1172.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=3695e13a26caf527bd06f3908a102cc6",
+    "publishedAt": "2021-11-03T06:00:37Z",
+    "content": "What happens if you reverse engineer the raw materials of everyday objects such as an iPhone, a Starbucks cup or a bicycle? Lonneke Gordijn and Ralph Nauta of the Dutch art collective Studio Drift at… [+6437 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "MacRumors"
+    },
+    "author": "Hartley Charlton",
+    "title": "Apple Debuts True-Crime Podcast 'Hooked' as First Standalone Original",
+    "description": "Apple today debuted \"Hooked,\" a true-crime podcast, seemingly as the company's first wholly standalone original podcast series.\n\n\n\n\n\nWhile Apple has already begun its venture into original podcasts with the likes of \"Oprah's Book Club\" and \"For All Mankind: T…",
+    "url": "https://www.macrumors.com/2021/11/03/apple-debuts-true-crime-podcast-hooked/",
+    "urlToImage": "https://images.macrumors.com/t/WuvzVn5CXdTZPZSV40Q3qexrdHc=/1600x/https://images.macrumors.com/article-new/2021/11/apple-original-podcast-hooked.jpg",
+    "publishedAt": "2021-11-03T16:04:12Z",
+    "content": "Apple today debuted \"Hooked,\" a true-crime podcast, seemingly as the company's first wholly standalone original podcast series.\r\nWhile Apple has already begun its venture into original podcasts with … [+2201 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "MacRumors"
+    },
+    "author": "Tim Hardwick",
+    "title": "Samsung Follows Apple and Lets Users Move Mobile Browser Address Bar to the Bottom of the Screen",
+    "description": "Apple took significant flak from users when it moved Safari's address bar to the bottom of the screen in iOS 15, but Samsung apparently liked it enough that it's now added the same option to its own mobile web browser for Android phones.\n\n\n\nwell gee samsung, …",
+    "url": "https://www.macrumors.com/2021/11/03/samsung-follows-apple-and-lets-users-move-mobile-browser-address-bar-to-the-bottom-of-the-screen/",
+    "urlToImage": "https://images.macrumors.com/t/lyu6eosxecPIWRZDJcFlk2-9Jmc=/1600x/https://images.macrumors.com/article-new/2021/11/safari-bottom-address-bar.jpg",
+    "publishedAt": "2021-11-03T09:50:51Z",
+    "content": "Apple took significant flak from users when it moved Safari's address bar to the bottom of the screen in iOS 15, but Samsung apparently liked it enough that it's now added the same option to its own … [+964 chars]"
+    },
+    {
+"source": {
+    "id": null,
+    "name": "MacRumors"
+    },
+    "author": "Juli Clover",
+    "title": "iCloud Private Relay Down for Some Users",
+    "description": "Apple's iCloud Private Relay option is not working for some users, according to Apple's System Status page. The feature is experiencing an outage and is unavailable at the current time.\n\n\n\n\n\nAccording to Apple, the outage started at 11:40 a.m. Pacific Time an…",
+    "url": "https://www.macrumors.com/2021/11/03/icloud-private-relay-outage/",
+    "urlToImage": "https://images.macrumors.com/t/-wUD_uHMOxr3F_3OVqSgYlgkQQA=/2000x/https://images.macrumors.com/article-new/2021/11/icloud-private-relay-unavailable.jpg",
+    "publishedAt": "2021-11-03T19:35:00Z",
+    "content": "Apple's iCloud Private Relay option is not working for some users, according to Apple's System Status page. The feature is experiencing an outage and is unavailable at the current time.\r\nAccording to… [+817 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "MacRumors"
+    },
+    "author": "Mitchel Broussard",
+    "title": "Deals: Nomad's New Sitewide Sale Has 20% Off iPhone 13 Cases, iPad Folios, and More",
+    "description": "Nomad today kicked off a new sale that is taking 20 percent off most full-priced products across Nomad's entire website, using the code SAVE20. This sitewide sale will last for two days.\n\n\n\nNote: MacRumors is an affiliate partner with Nomad. When you click a …",
+    "url": "https://www.macrumors.com/2021/11/03/deals-nomads-new-sitewide/",
+    "urlToImage": "https://images.macrumors.com/t/frr82iJg9iLzVJrhxYpxFIseBG4=/2500x/https://images.macrumors.com/article-new/2021/11/nomad-20-percent-off-sale.jpg",
+    "publishedAt": "2021-11-03T13:31:55Z",
+    "content": "Nomad today kicked off a new sale that is taking 20 percent off most full-priced products across Nomad's entire website, using the code SAVE20. This sitewide sale will last for two days.\r\nNote: MacRu… [+1316 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "MacRumors"
+    },
+    "author": "Mitchel Broussard",
+    "title": "Deals: Huge iPad Pro Sale on Amazon Taking Up to $150 Off 2021 Models With Record Low Prices",
+    "description": "Today we're tracking a massive sale on Apple's 2021 iPad Pro lineup, including up to $150 off the 11-inch iPad Pro and 12.9-inch iPad Pro. For many of these tablets, Amazon's sale prices today are offering the lowest discounts we've ever seen, or matching the…",
+    "url": "https://www.macrumors.com/2021/11/03/deals-huge-ipad-pro-sale/",
+    "urlToImage": "https://images.macrumors.com/t/JpKByK8gDULdLaFOskru7RuExcc=/2129x/https://images.macrumors.com/article-new/2021/04/iPad-Pro-Deals-Feature-Yellow.jpg",
+    "publishedAt": "2021-11-03T14:43:12Z",
+    "content": "Today we're tracking a massive sale on Apple's 2021 iPad Pro lineup, including up to $150 off the 11-inch iPad Pro and 12.9-inch iPad Pro. For many of these tablets, Amazon's sale prices today are of… [+2298 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "Zacks.com"
+    },
+    "author": "Zacks Equity Research",
+    "title": "Should Vanguard Russell 1000 Growth ETF (VONG) Be on Your Investing Radar?",
+    "description": "Style Box ETF report for VONG",
+    "url": "http://www.zacks.com/stock/news/1822394/should-vanguard-russell-1000-growth-etf-vong-be-on-your-investing-radar?cid=CS-ENTREPRENEUR-FT-style_box_etf-1822394",
+    "urlToImage": "https://assets.entrepreneur.com/providers/zacks/hero-image-zacks-395069.jpeg",
+    "publishedAt": "2021-11-03T10:20:10Z",
+    "content": "Looking for broad exposure to the Large Cap Growth segment of the US equity market? You should consider the Vanguard Russell 1000 Growth ETF (VONG), a passively managed exchange traded fund launched … [+4248 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "MacRumors"
+    },
+    "author": "Juli Clover",
+    "title": "Apple Releases HomePod Software 15.1.1",
+    "description": "After releasing tvOS 15.1.1 for the Apple TV HD and ‌Apple TV‌ 4K yesterday, Apple today introduced a new 15.1.1 software update designed for the HomePod.\n\n\n\n\n\nThere is no word on what's new in the ‌HomePod‌ 15.1.1 update, but it could focus on bug fixes. Yes…",
+    "url": "https://www.macrumors.com/2021/11/03/apple-releases-homepod-software-15-1-1/",
+    "urlToImage": "https://images.macrumors.com/t/veeTqeVQU93xaOKoWGZLeREprLQ=/1600x/https://images.macrumors.com/article-new/2021/02/HomePodandMini-feature-green.jpg",
+    "publishedAt": "2021-11-03T17:19:20Z",
+    "content": "After releasing tvOS 15.1.1 for the Apple TV HD and Apple TV 4K yesterday, Apple today introduced a new 15.1.1 software update designed for the HomePod.\r\nAccording to Apple's release notes for the up… [+739 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "MacRumors"
+    },
+    "author": "Tim Hardwick",
+    "title": "MacBook Air Drives 6.5 Million Apple Laptop Shipments in Q3 2021",
+    "description": "Apple shipped 6.5 million laptops in the third quarter of this year, thanks in large part to high demand for the M1-powered MacBook Air.\n\n\n\n\n\nThat's according to research firm Strategy Analytics, whose data put Apple as the fourth largest seller of laptops be…",
+    "url": "https://www.macrumors.com/2021/11/03/macbook-air-6-5-million-apple-shipments-q3-2021/",
+    "urlToImage": "https://images.macrumors.com/t/zoEv-Bip3Vcf1C_WHlyMzvuF9lY=/1616x/https://images.macrumors.com/article-new/2020/11/macbook-air-m1-unboxing-feature.jpg",
+    "publishedAt": "2021-11-03T11:04:38Z",
+    "content": "Apple shipped 6.5 million laptops in the third quarter of this year, thanks in large part to high demand for the M1-powered MacBook Air.\r\nThat's according to research firm Strategy Analytics, whose d… [+1429 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "MacRumors"
+    },
+    "author": "Juli Clover",
+    "title": "Facebook Finds New Way to Avoid Apple's In-App Purchases With Creator Subscription Links",
+    "description": "Meta CEO Mark Zuckerberg today announced changes to Facebook's \"Subscriptions\" tool, which will see Facebook testing Apple's App Store guidelines in an effort to secure more money for content creators.\n\n\n\n\n\nWith Subscriptions, content creators can allow their…",
+    "url": "https://www.macrumors.com/2021/11/03/facebook-creator-subscription-links/",
+    "urlToImage": "https://images.macrumors.com/t/N50PPDIYkksfup0mNPnixwdEqOY=/2250x/https://images.macrumors.com/article-new/2021/03/Facebook-Feature.jpg",
+    "publishedAt": "2021-11-03T18:52:05Z",
+    "content": "Meta CEO Mark Zuckerberg today announced changes to Facebook's \"Subscriptions\" tool, which will see Facebook testing Apple's App Store guidelines in an effort to secure more money for content creator… [+2962 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "MacRumors"
+    },
+    "author": "Joe Rossignol",
+    "title": "Apple's Craig Federighi Says Sideloading on iPhone Would Open the Floodgates to Malware",
+    "description": "Apple's software engineering chief Craig Federighi today expressed his opposition to a provision in Europe's proposed Digital Markets Act that would require the iPhone to allow sideloading of apps outside of the App Store.\n\n\n\n\n\nSpeaking at the Web Summit conf…",
+    "url": "https://www.macrumors.com/2021/11/03/craig-federighi-opposes-sideloading/",
+    "urlToImage": "https://images.macrumors.com/t/Ym5c25RDhQ_UTO3oWtup6MsSaVE=/1600x/https://images.macrumors.com/article-new/2021/11/craig-federighi-web-summit.jpg",
+    "publishedAt": "2021-11-03T17:16:09Z",
+    "content": "Apple's software engineering chief Craig Federighi today expressed his opposition to a provision in Europe's proposed Digital Markets Act that would require the iPhone to allow sideloading of apps ou… [+1134 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "MacRumors"
+    },
+    "author": "Juli Clover",
+    "title": "TestFlight for Mac Officially Launches",
+    "description": "Apple today informed developers that they can invite people to try out early versions of Mac apps prior to release using the TestFlight platform, marking the end of a beta test that's been ongoing since August.\n\n\n\n\n\nMac app developers can invite up to 10,000 …",
+    "url": "https://www.macrumors.com/2021/11/03/testflight-for-mac-launches/",
+    "urlToImage": "https://images.macrumors.com/t/1Hzy9vnp7zoOR5TH825BH3wtq-o=/2048x/https://images.macrumors.com/article-new/2021/03/apple-developer-app-banner.jpeg",
+    "publishedAt": "2021-11-03T18:36:08Z",
+    "content": "Apple today informed developers that they can invite people to try out early versions of Mac apps prior to release using the TestFlight platform, marking the end of a beta test that's been ongoing si… [+603 chars]"
+    }
+    ]
+    }

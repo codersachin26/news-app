@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -63,11 +64,17 @@ class NewsApp extends ChangeNotifier {
   }
 
   // bookmark article
-  void bookmarkArticle(Article article, bool isbookmark) async {
-    if (isbookmark) {
-      await DB.removeArticle(article.id);
-    } else {
-      await DB.addArticle(article);
+  Future<int> bookmarkArticle(Article article, bool isbookmark) async {
+    try {
+      if (isbookmark) {
+        await DB.removeArticle(article.id);
+      } else {
+        await DB.addArticle(article);
+      }
+      return 1;
+    } catch (e, s) {
+      FirebaseCrashlytics.instance.recordError(e, s);
+      return 0;
     }
   }
 

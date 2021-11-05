@@ -8,31 +8,45 @@ class DB {
   static Database? _dbConnection;
   static const String tableName = 'bookmark';
 
-  // open database connection
-  static Future openDbConnection() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    final String dbpath = join(await getDatabasesPath() + "bookmark.db");
-    final dbCon = await openDatabase(dbpath, onCreate: (db, virsion) {
-      db.execute(
-        'CREATE TABLE $tableName(id TEXT,title TEXT,source TEXT,content TEXT,imgURL TEXT, publshedAt TEXT)',
-      );
-    }, version: 1);
+  static bool hasConnection() {
+    if (_dbConnection != null) return true;
+    return false;
+  }
 
-    DB._dbConnection = dbCon;
+  // open database connection
+  static Future<bool> openDbConnection() async {
+    try {
+      WidgetsFlutterBinding.ensureInitialized();
+      final String dbpath = join(await getDatabasesPath() + "bookmark1.db");
+      final dbCon = await openDatabase(dbpath, onCreate: (db, virsion) {
+        db.execute(
+          'CREATE TABLE $tableName(id TEXT,title TEXT,source TEXT,content TEXT,imgURL TEXT, publshedAt TEXT)',
+        );
+      }, version: 1);
+
+      DB._dbConnection = dbCon;
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 
 // remove article from bookmark table
-  static Future<void> removeArticle(String id) async {
+  static Future<int?> removeArticle(String id) async {
     if (DB._dbConnection != null) {
-      await DB._dbConnection?.delete(tableName, where: 'id=?', whereArgs: [id]);
+      final result = await DB._dbConnection
+          ?.delete(tableName, where: 'id=?', whereArgs: [id]);
+      return result;
     } else {
       await DB.openDbConnection();
-      await DB._dbConnection?.delete(tableName, where: 'id=?', whereArgs: [id]);
+      final result = await DB._dbConnection
+          ?.delete(tableName, where: 'id=?', whereArgs: [id]);
+      return result;
     }
   }
 
 // add article into bookmark table
-  static Future<void> addArticle(Article article) async {
+  static Future<int?> addArticle(Article article) async {
     final values = {
       'id': article.id,
       'title': article.title,
@@ -42,10 +56,10 @@ class DB {
       'publshedAt': article.publshedAt
     };
     if (DB._dbConnection != null) {
-      await DB._dbConnection?.insert(tableName, values);
+      return await DB._dbConnection?.insert(tableName, values);
     } else {
       await DB.openDbConnection();
-      await DB._dbConnection?.insert(tableName, values);
+      return await DB._dbConnection?.insert(tableName, values);
     }
   }
 
