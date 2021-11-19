@@ -50,6 +50,7 @@ dependencies:
   flutter_local_notifications: ^9.0.0
   firebase_messaging: ^10.0.9
   connectivity_plus: ^2.0.2
+  network_image_mock: ^2.0.1
 
 dev_dependencies:
   flutter_test:

@@ -56,8 +56,8 @@ class _BookMarkBtnState extends State<BookMarkBtn> {
               ),
       ),
       onTap: () {
-        final model = Provider.of<NewsApp>(context, listen: false);
-        model.bookmarkArticle(widget.article, widget.article.isBookmark);
+        // final model = Provider.of<NewsAppNotifier>(context, listen: false);
+        // model.bookmarkArticle(widget.article, widget.article.isBookmark);
         widget.article.isBookmark = !widget.article.isBookmark;
         setState(() {});
       },

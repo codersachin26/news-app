@@ -7,7 +7,7 @@ class ThemeIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<NewsApp>(context, listen: false);
+    final model = Provider.of<NewsAppNotifier>(context, listen: false);
     if (ThemeMode.dark != model.currentThemeMode) {
       return IconButton(
           onPressed: () {

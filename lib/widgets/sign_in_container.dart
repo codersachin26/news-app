@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:short_news/models/enum.dart';
 import 'package:short_news/services/news_app.dart';
 
-class SignInConatiner extends StatelessWidget {
-  const SignInConatiner({Key? key}) : super(key: key);
+class GoogleSignInConatiner extends StatelessWidget {
+  const GoogleSignInConatiner({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +32,8 @@ class SignInConatiner extends StatelessWidget {
           ),
         ),
         onTap: () {
-          final model = Provider.of<NewsApp>(context, listen: false);
-          model.googleSignIn();
+          final model = Provider.of<NewsAppNotifier>(context, listen: false);
+          model.signInWith(OAuthType.google);
         },
       ),
     );

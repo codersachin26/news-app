@@ -2,50 +2,44 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:short_news/models/data_model.dart';
+import 'package:short_news/models/enum.dart';
+import 'package:short_news/services/auth.dart';
 import 'package:short_news/services/db.dart';
 import 'package:short_news/services/news_api.dart';
 import 'package:short_news/models/themes.dart';
 import 'package:uuid/uuid.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class NewsApp extends ChangeNotifier {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  late ThemeMode _themeMode;
+class NewsAppNotifier extends ChangeNotifier {
+  final OAuth _oAuth;
+  final SharedPreferences _sharedPreferences;
+  ThemeMode _themeMode = ThemeMode.light;
   final List<Article> _notifications = [];
+
+  NewsAppNotifier(this._oAuth, this._sharedPreferences);
 
   ThemeMode get currentThemeMode => _themeMode;
 
-  // sign in with google
-  Future<void> googleSignIn() async {
-    final GoogleSignIn googleSignIn = GoogleSignIn();
-    final GoogleSignInAccount? googleSignInAccount =
-        await googleSignIn.signIn();
-    if (googleSignInAccount != null) {
-      final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount.authentication;
-      final AuthCredential authCredential = GoogleAuthProvider.credential(
-          idToken: googleSignInAuthentication.idToken,
-          accessToken: googleSignInAuthentication.accessToken);
-
-      await _auth.signInWithCredential(authCredential);
+  // sign in with OAuthType
+  Future<void> signInWith(OAuthType oAuthType) async {
+    if (oAuthType == OAuthType.google) {
+      _oAuth.googleSignIn();
+      notifyListeners();
     }
-    notifyListeners();
   }
 
-  // sign out from google
+  // sign out
   void signOut() {
-    _auth.signOut();
+    _oAuth.signOut();
     notifyListeners();
   }
 
 // return current theme
   Future<ThemeData> getTheme() async {
     ThemeData currentTheme;
-    final pref = await SharedPreferences.getInstance();
-    dynamic themeMode = pref.get('themeMode');
+    dynamic themeMode = _sharedPreferences.get('themeMode');
     currentTheme = themeMode == 'dark' ? Themes.darkTheme : Themes.lightTheme;
     _themeMode = themeMode == 'dark' ? ThemeMode.dark : ThemeMode.light;
 
@@ -55,9 +49,8 @@ class NewsApp extends ChangeNotifier {
 // set theme
   Future<void> setTheme(ThemeMode themeMode) async {
     final myTheme = ThemeMode.dark == themeMode ? 'dark' : 'light';
-    final pref = await SharedPreferences.getInstance();
 
-    pref.setString('themeMode', myTheme);
+    _sharedPreferences.setString('themeMode', myTheme);
     _themeMode = themeMode;
 
     notifyListeners();

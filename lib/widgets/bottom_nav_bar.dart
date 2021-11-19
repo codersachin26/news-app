@@ -29,14 +29,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
           } else if (index == 1) {
             widget.pageController.jumpToPage(1);
           } else if (index == 2) {
-            final model = Provider.of<NewsApp>(context, listen: false);
+            final model = Provider.of<NewsAppNotifier>(context, listen: false);
             model.signOut();
           }
         },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark_border_sharp), label: 'Save'),
+              tooltip: 'save',
+              icon: Icon(Icons.bookmark_border_sharp),
+              label: 'Save'),
           BottomNavigationBarItem(icon: Icon(Icons.logout), label: 'SignOut'),
         ]);
   }

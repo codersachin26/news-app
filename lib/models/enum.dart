@@ -1,0 +1,4 @@
+enum OAuthType {
+  google,
+  facebok,
+}

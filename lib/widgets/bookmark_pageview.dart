@@ -5,13 +5,14 @@ import 'package:short_news/services/news_app.dart';
 import 'package:short_news/widgets/news_container.dart';
 
 // bookmark news container widget
-class BookmarkNewsView extends StatelessWidget {
-  const BookmarkNewsView({Key? key}) : super(key: key);
+class BookmarkView extends StatelessWidget {
+  const BookmarkView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: Provider.of<NewsApp>(context, listen: false).getBookmarkArticle(),
+      future: Provider.of<NewsAppNotifier>(context, listen: false)
+          .getBookmarkArticle(),
       builder: (context, AsyncSnapshot<List<Article>> snapshot) {
         if (snapshot.hasError) {
           return Center(child: Text(snapshot.error.toString()));

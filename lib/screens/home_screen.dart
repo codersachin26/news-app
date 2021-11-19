@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: Provider.of<NewsApp>(context, listen: false).getTheme(),
+      future: Provider.of<NewsAppNotifier>(context, listen: false).getTheme(),
       builder: (context, AsyncSnapshot<ThemeData> snapshot) {
         if (snapshot.hasData) {
           return MaterialApp(
@@ -75,7 +75,7 @@ class _HomeViewState extends State<HomeView> {
       PageController(initialPage: 0, keepPage: true);
   List<Widget> screens = const <Widget>[
     NewsView(),
-    BookmarkNewsView(),
+    BookmarkView(),
   ];
 
   @override

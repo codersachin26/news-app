@@ -49,7 +49,7 @@ class _NewsViewState extends State<NewsView>
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: Provider.of<NewsApp>(context, listen: false).getNews(),
+        future: Provider.of<NewsAppNotifier>(context, listen: false).getNews(),
         builder: (context, AsyncSnapshot<List<Article>> snapshot) {
           if (snapshot.hasError) {
             final _error = snapshot.error.toString();

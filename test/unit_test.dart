@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:short_news/models/data_model.dart';
+import 'package:short_news/services/auth.dart';
 import 'package:short_news/services/db.dart';
 import 'package:short_news/services/internet_connectivity.dart';
 import 'package:short_news/services/news_api.dart';
@@ -64,11 +65,11 @@ main() {
   });
 
   group('testing NewsApp methods -->', () {
-    late NewsApp model;
+    late NewsAppNotifier model;
     setUp(() async {
       await Firebase.initializeApp();
-      model = NewsApp();
       final pref = await SharedPreferences.getInstance();
+      model = NewsAppNotifier(OAuth(), pref);
       pref.clear();
     });
 

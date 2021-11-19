@@ -15,8 +15,8 @@ class NotificationScreen extends StatelessWidget {
           title: const Text('Notifications'),
         ),
         body: FutureBuilder(
-          future:
-              Provider.of<NewsApp>(context, listen: false).getNotification(),
+          future: Provider.of<NewsAppNotifier>(context, listen: false)
+              .getNotification(),
           builder: (context, AsyncSnapshot<List<Article>> snapshot) {
             if (snapshot.hasError) {
               return Center(
