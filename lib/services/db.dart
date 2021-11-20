@@ -17,7 +17,7 @@ class DB {
   static Future<bool> openDbConnection() async {
     try {
       WidgetsFlutterBinding.ensureInitialized();
-      final String dbpath = join(await getDatabasesPath() + "bookmark1.db");
+      final String dbpath = join(await getDatabasesPath() + "bookmark.db");
       final dbCon = await openDatabase(dbpath, onCreate: (db, virsion) {
         db.execute(
           'CREATE TABLE $tableName(id TEXT,title TEXT,source TEXT,content TEXT,imgURL TEXT, publshedAt TEXT)',

@@ -15,7 +15,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class NewsAppNotifier extends ChangeNotifier {
   final OAuth _oAuth;
   final SharedPreferences _sharedPreferences;
-  ThemeMode _themeMode = ThemeMode.light;
+  late ThemeMode _themeMode;
   final List<Article> _notifications = [];
 
   NewsAppNotifier(this._oAuth, this._sharedPreferences);

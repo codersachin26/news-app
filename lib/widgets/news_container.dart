@@ -9,8 +9,7 @@ class NewsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * .97,
-      margin: const EdgeInsets.only(bottom: 2),
+      margin: const EdgeInsets.only(bottom: 4, top: 2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -32,7 +31,7 @@ class NewsContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * .96,
+      height: MediaQuery.of(context).size.height * .36,
       margin: const EdgeInsets.only(top: 5),
       padding: const EdgeInsets.only(left: 5),
       child: Column(
@@ -64,17 +63,21 @@ class NewsContent extends StatelessWidget {
           Text(
             article.title,
             style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+            maxLines: 2,
           ),
           const SizedBox(
             height: 3,
           ),
-          Text(
-            article.content,
-            style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.normal,
-                fontStyle: FontStyle.normal),
-            overflow: TextOverflow.fade,
+          Container(
+            height: MediaQuery.of(context).size.height * .20,
+            child: Text(
+              article.content,
+              style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.normal,
+                  fontStyle: FontStyle.normal),
+              overflow: TextOverflow.fade,
+            ),
           )
         ],
       ),
