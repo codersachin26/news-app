@@ -1,7 +1,7 @@
 # Short News
 
-A Flutter news application which display news articles from NewsApi and only authenticated user can watch the news article.
-- User can bookmark any article for future use.
+A Flutter news application that displays news articles from NewsApi and only authenticated users can watch the news article.
+- user can bookmark any article for future use.
 - user can switch light to dark theme mode or vice-versa.
 - user can watch notifications.
 
