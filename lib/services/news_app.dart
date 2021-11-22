@@ -25,14 +25,14 @@ class NewsAppNotifier extends ChangeNotifier {
   // sign in with OAuthType
   Future<void> signInWith(OAuthType oAuthType) async {
     if (oAuthType == OAuthType.google) {
-      _oAuth.googleSignIn();
+      await _oAuth.googleSignIn();
       notifyListeners();
     }
   }
 
   // sign out
-  void signOut() {
-    _oAuth.signOut();
+  void signOut() async {
+    await _oAuth.signOut();
     notifyListeners();
   }
 

@@ -21,7 +21,7 @@ class OAuth {
   }
 
   // sign out from google
-  void signOut() {
-    _firebaseAuth.signOut();
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
   }
 }
