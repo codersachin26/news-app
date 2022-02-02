@@ -1,9 +1,12 @@
 # Short News
 
 A Flutter short news application that displays news articles from NewsApi.
-- bookmark any article for future use.
-- switch light to dark theme mode or vice-versa.
-- sign in with google sign in.
+
+features:-
+- Google sign in using Firebase Auth.
+- used Sqflite DB to store articles for future use.
+- implemented dark theme mode.
+- simple and interactive UI
 
 ### Light Mode
 
