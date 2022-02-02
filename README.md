@@ -6,6 +6,7 @@ features:-
 - Google sign in using Firebase Auth.
 - used Sqflite DB to store articles for future use.
 - implemented dark theme mode.
+- firebase integrations( crashlytics,firestore,analytics,authentication )
 - simple and interactive UI
 
 ### Light Mode
@@ -22,13 +23,7 @@ features:-
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### App Features
-    - dark mode
-    - push notification
-    - bookmark article
-    - google sign in
-    - firebase integration( crashlytics,firestore,analytics,authentication )
-    - unit testing , widget testing
+
    
 
 
